@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Year 1 Project Timeline</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 12px;
+            border-radius: 2px;
+        }
+        
+        .gantt-container {
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .gantt-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1200px;
+        }
+        
+        .gantt-header {
+            background-color: #34495e;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 5px;
+            font-size: 11px;
+        }
+        
+        .task-row {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .task-row:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .task-name {
+            padding: 8px 12px;
+            font-weight: 500;
+            background-color: #ecf0f1;
+            border-right: 2px solid #bdc3c7;
+            width: 250px;
+            font-size: 12px;
+        }
+        
+        .chapter-header {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 8px;
+        }
+        
+        .date-cell {
+            width: 25px;
+            height: 35px;
+            border-right: 1px solid #eee;
+            position: relative;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 9px;
+        }
+        
+        .weekend {
+            background-color: #f8f9fa;
+        }
+        
+        .task-bar {
+            height: 20px;
+            border-radius: 3px;
+            position: relative;
+            margin: 7px 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 500;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        }
+        
+        .verification {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        .ct-room {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        
+        .writeup {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+        
+        .review {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        
+        .literature {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+        
+        .milestone {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+        }
+        
+        .fieldwork {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+        }
+        
+        .dependency-arrow {
+            position: absolute;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        
+        .notes {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+        }
+        
+        .notes h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+        
+        .critical-path {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PhD Year 1 Project Timeline - June to August 2025</h1>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color verification"></div>
+                <span>Lab Verification Work</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color ct-room"></div>
+                <span>CT Room Experiments</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color writeup"></div>
+                <span>Writing/Analysis</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color review"></div>
+                <span>Supervisor Reviews</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color literature"></div>
+                <span>Literature Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color milestone"></div>
+                <span>Milestones/Submissions</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color fieldwork"></div>
+                <span>Fieldwork</span>
+            </div>
+        </div>
+        
+        <div class="gantt-container">
+            <table class="gantt-table">
+                <thead>
+                    <tr>
+                        <th class="gantt-header" style="width: 250px;">Task</th>
+                        <th class="gantt-header">Jun 2</th>
+                        <th class="gantt-header">3</th>
+                        <th class="gantt-header">4</th>
+                        <th class="gantt-header">5</th>
+                        <th class="gantt-header">6</th>
+                        <th class="gantt-header weekend">7</th>
+                        <th class="gantt-header weekend">8</th>
+                        <th class="gantt-header">9</th>
+                        <th class="gantt-header">10</th>
+                        <th class="gantt-header">11</th>
+                        <th class="gantt-header">12</th>
+                        <th class="gantt-header">13</th>
+                        <th class="gantt-header weekend">14</th>
+                        <th class="gantt-header weekend">15</th>
+                        <th class="gantt-header">16</th>
+                        <th class="gantt-header">17</th>
+                        <th class="gantt-header">18</th>
+                        <th class="gantt-header">19</th>
+                        <th class="gantt-header">20</th>
+                        <th class="gantt-header weekend">21</th>
+                        <th class="gantt-header weekend">22</th>
+                        <th class="gantt-header">23</th>
+                        <th class="gantt-header">24</th>
+                        <th class="gantt-header">25</th>
+                        <th class="gantt-header">26</th>
+                        <th class="gantt-header">27</th>
+                        <th class="gantt-header weekend">28</th>
+                        <th class="gantt-header weekend">29</th>
+                        <th class="gantt-header">30</th>
+                        <th class="gantt-header">Jul 1</th>
+                        <th class="gantt-header">2</th>
+                        <th class="gantt-header">3</th>
+                        <th class="gantt-header">4</th>
+                        <th class="gantt-header weekend">5</th>
+                        <th class="gantt-header weekend">6</th>
+                        <th class="gantt-header">7</th>
+                        <th class="gantt-header">8</th>
+                        <th class="gantt-header">9</th>
+                        <th class="gantt-header">10</th>
+                        <th class="gantt-header">11</th>
+                        <th class="gantt-header weekend">12</th>
+                        <th class="gantt-header weekend">13</th>
+                        <th class="gantt-header">14</th>
+                        <th class="gantt-header">15</th>
+                        <th class="gantt-header">16</th>
+                        <th class="gantt-header">17</th>
+                        <th class="gantt-header">18</th>
+                        <th class="gantt-header weekend">19</th>
+                        <th class="gantt-header weekend">20</th>
+                        <th class="gantt-header">21</th>
+                        <th class="gantt-header">22</th>
+                        <th class="gantt-header">23</th>
+                        <th class="gantt-header">24</th>
+                        <th class="gantt-header">25</th>
+                        <th class="gantt-header weekend">26</th>
+                        <th class="gantt-header weekend">27</th>
+                        <th class="gantt-header">28</th>
+                        <th class="gantt-header">29</th>
+                        <th class="gantt-header">30</th>
+                        <th class="gantt-header">31</th>
+                        <th class="gantt-header">Aug 1</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="task-row">
+                        <td class="chapter-header">CHAPTER 1: WET150 VERIFICATION</td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name">Fieldwork Period</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"><div class="task-bar fieldwork">FIELDWORK STARTS</div></td>
+                    </tr>
+                    
+                    <tr class="task-row">
+                        <td class="chapter-header">FUTURE PROJECTS</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name" style="font-style: italic; color: #7f8c8d;">Turkey Irrigation Trial*</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="notes">
+            <h3>📋 Project Notes & Dependencies</h3>
+            <p><strong>Critical Path Items (marked in red):</strong></p>
+            <ul>
+                <li>Skeleton Draft completion → enables Supervisor Review 1</li>
+                <li>First Draft completion → enables Supervisor Review 2</li>
+                <li>Final Draft → must be ready by mid-July for submission before fieldwork</li>
+            </ul>
+            
+            <p><strong>*Turkey Irrigation Trial:</strong> Timeline will be updated once review by supervisors completed.</p>
+            
+            <p><strong>Key Dependencies:</strong></p>
+            <ul>
+                <li>Lab verification trials (June 2-6) → feeds into all writing phases</li>
+                <li>CT Room setup (June 9) → runs parallel to writing activities</li>
+                <li>Literature review work → scheduled during supervisor review periods to maximize efficiency</li>
+                <li>All major submissions → targeted for completion before August fieldwork</li>
+            </ul>
+            
+            <p><strong>Risk Mitigation:</strong></p>
+            <ul>
+                <li>CT Room experiments continue into July to provide buffer time</li>
+                <li>Literature review progresses during review periods to avoid delays</li>
+                <li>Final drafts targeted for mid-July submission, allowing 2-week buffer before fieldwork</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name">Lab Verification Trials</td>
+                        <td class="date-cell"><div class="task-bar verification">Re-run</div></td>
+                        <td class="date-cell"><div class="task-bar verification">Tests</div></td>
+                        <td class="date-cell"><div class="task-bar verification">Final</div></td>
+                        <td class="date-cell"><div class="task-bar verification">Data</div></td>
+                        <td class="date-cell"><div class="task-bar verification">Collection</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name critical-path">Skeleton Draft (1 week)</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar writeup">Start</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Skeleton</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Structure</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Draft</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Complete</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name">Supervisor Review 1 (1 week)</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar review">Review</div></td>
+                        <td class="date-cell"><div class="task-bar review">Period</div></td>
+                        <td class="date-cell"><div class="task-bar review">1</div></td>
+                        <td class="date-cell"><div class="task-bar review">Week</div></td>
+                        <td class="date-cell"><div class="task-bar review">Complete</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name critical-path">First Draft (2 weeks)</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar writeup">First</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Draft</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Writing</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Period</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Week 1</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar writeup">Week 2</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Complete</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Draft</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Finalize</div></td>
+                        <td class="date-cell"><div class="task-bar writeup">Submit</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name">Supervisor Review 2 (10 days)</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar review">Review</div></td>
+                        <td class="date-cell"><div class="task-bar review">Period</div></td>
+                        <td class="date-cell"><div class="task-bar review">2</div></td>
+                        <td class="date-cell"><div class="task-bar review">10</div></td>
+                        <td class="date-cell"><div class="task-bar review">Days</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar review">Review</div></td>
+                        <td class="date-cell"><div class="task-bar review">Complete</div></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name critical-path">Final Draft & Submission</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"><div class="task-bar milestone">SUBMIT</div></td>
+                        <td class="date-cell"><div class="task-bar milestone">PAPER</div></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    
+                    <tr class="task-row">
+                        <td class="chapter-header">CHAPTER 2: LITERATURE REVIEW</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name">Lit Review - Skeleton Draft</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar literature">Lit</div></td>
+                        <td class="date-cell"><div class="task-bar literature">Search</div></td>
+                        <td class="date-cell"><div class="task-bar literature">Review</div></td>
+                        <td class="date-cell"><div class="task-bar literature">Analysis</div></td>
+                        <td class="date-cell"><div class="task-bar literature">Skeleton</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name">Lit Review - First Draft</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar literature">First</div></td>
+                        <td class="date-cell"><div class="task-bar literature">Draft</div></td>
+                        <td class="date-cell"><div class="task-bar literature">Writing</div></td>
+                        <td class="date-cell"><div class="task-bar literature">Complete</div></td>
+                        <td class="date-cell"><div class="task-bar literature">Review</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name">Lit Review - Final Draft</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"><div class="task-bar literature">Final</div></td>
+                        <td class="date-cell"><div class="task-bar literature">Draft</div></td>
+                        <td class="date-cell"><div class="task-bar literature">Ready</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"><div class="task-bar milestone">SUBMIT</div></td>
+                    </tr>
+                    
+                    <tr class="task-row">
+                        <td class="chapter-header">CHAPTER 3: CT ROOM EXPERIMENTS</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name">CT Room Setup</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Setup</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">CT Room</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Equipment</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Testing</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Ready</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    <tr class="task-row">
+                        <td class="task-name">CT Room Experiments</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Sand</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Type</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Expts</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Start</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Running</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Continue</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Experiments</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Data</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Collection</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Ongoing</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Complete</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">June</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Phase</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">July</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Continue</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"><div class="task-bar ct-room">July</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Experiments</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Continue</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Until</div></td>
+                        <td class="date-cell"><div class="task-bar ct-room">Mid-July</div></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                    </tr>
+                    
+                    <tr class="task-row">
+                        <td class="chapter-header">FIELDWORK</td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell weekend"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
+                        <td class="date-cell"></td>
